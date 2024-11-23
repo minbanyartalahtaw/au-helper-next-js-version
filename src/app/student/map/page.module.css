@@ -1,0 +1,107 @@
+.buildingContainer{
+    margin: 0 auto;
+    width: 647px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    transform: scale(1);
+}
+
+.mapContainer{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.gate{
+    background-color: rgb(191, 191, 191);
+    width: 97px;
+    height: 97px;
+    margin: 0;
+    padding: 0;
+}
+
+.building{
+    background-color: rgb(191, 191, 191);
+    width: 60px;
+    height: 178px;
+    margin: 0;
+    padding: 0;
+}
+.SRbuildingContainer, .SGbuildingContainer, .SMbuildingContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.map-left{
+    display: flex;
+    flex-direction: row;
+}
+
+.buildingContainer{
+    margin: 0 auto;
+    width: 647px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    transform: scale(1);
+}
+
+.SMbuildingContainer{
+    transform: rotate(-90deg);
+    transform-origin: top;
+    position: absolute;
+    margin-left: -47.8px;
+    margin-top: 45px;
+}
+
+@media (max-width:1600px) {
+    .buildingContainer{
+        transform: scale(0.7);
+    }
+}
+
+@media  (max-width:800px) {
+    .buildingContainer{
+        transform: scale(0.5);
+    }
+
+}
+/**********************************************/
+
+.btn {
+    background-color: whitesmoke;
+}
+.mapRight h2{
+    font-weight: lighter;
+    font-size: 30px;
+    color: #868686;
+    text-align: center;
+    user-select: none;
+    margin: 20px 0px;
+}
+.map-right{
+    margin-top: -100px;
+}
+
+.opicityZero {
+    opacity: 0;
+}
+.buildingButton{
+    color:black;
+}
+.floorNumber{
+    color: black;
+}
+
+.display-none{
+    display: none;
+}
+
+

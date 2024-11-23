@@ -1,0 +1,17 @@
+.container{
+    animation-name: moveButtonTop;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+  }
+
+@keyframes moveButtonTop {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
