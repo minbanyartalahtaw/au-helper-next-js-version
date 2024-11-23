@@ -1,7 +1,5 @@
-body{
-    background-color: rgb(203, 232, 255);
-}
 .container{
+    background-color: rgb(203, 232, 255);
     animation-name: moveButtonTop;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
