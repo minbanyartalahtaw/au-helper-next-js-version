@@ -1,4 +1,4 @@
-.button{
+.button {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,18 +14,14 @@
   animation-iteration-count: 1;
   animation-timing-function: ease-in-out;
 }
-.teacherButton{
-  background-color: aquamarine;
-}
-.button:active{
+.button:active {
   transform: scale(0.96);
 }
 .Buttonicon {
   font-size: 40px;
   margin-right: 10px;
-  
 }
-.buttonText{
+.buttonText {
   font-size: 25px;
   font-weight: 200;
   font-family: sans-serif;
@@ -40,5 +36,4 @@
     transform: translateY(0);
     opacity: 1;
   }
-  
 }

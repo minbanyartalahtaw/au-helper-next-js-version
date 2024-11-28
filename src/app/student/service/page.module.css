@@ -1,40 +1,28 @@
-
-.container{
-    animation-name: moveButtonTop;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-  }
-.button{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 20px;
-  background-color: #1876D1;
-  padding: 10px 20px;
-  border-radius: 7px;
-  border-color: transparent;
-  color: white;
-  cursor: pointer;
-  transform: scale(1);
-  transition: all 0.1s ease-in-out;
+.container {
+  height: 100vh;
   animation-name: moveButtonTop;
   animation-duration: 0.5s;
   animation-iteration-count: 1;
   animation-timing-function: ease-in-out;
-  
 }
-.button:active{
-  transform: scale(0.96);
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  font-family: sans-serif;
+  margin-top: 0px;
 }
 
 @keyframes moveButtonTop {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

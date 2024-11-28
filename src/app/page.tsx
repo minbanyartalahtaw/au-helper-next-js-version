@@ -1,27 +1,63 @@
-"use client"
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import GroupsIcon from '@mui/icons-material/Groups';
+"use client";
+import PinDropIcon from "@mui/icons-material/PinDrop";
+import AssignmentIcon from "@mui/icons-material/Assignment";
 import style from "./page.module.css";
-import Link from 'next/link';
+import Link from "next/link";
+import { Typography } from "@mui/material";
 export default function Home() {
-
   return (
-    <div style={{"display":"flex","justifyContent":"center","alignItems":"center","height":"100vh","flexDirection":"column", borderBottom:"1px solid #eb5e28"}}>
-      <h1 style={{ "color": "#eb5e28",fontFamily: "sans-serif",fontWeight:100,marginTop:"-130px"}}>AU-HELPER</h1>
-      <div className="buttons" style={{"display":"flex","justifyContent":"center","alignItems":"center","gap":"10px",marginTop:"100px"}}>
-        <Link href="/student" style={{"textDecoration":"none"}}> 
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        flexDirection: "column",
+        borderBottom: "1px solid #eb5e28",
+      }}
+    >
+      <h1
+        style={{
+          color: "#e63946",
+          fontFamily: "sans-serif",
+          fontWeight: 100,
+          marginTop: "-130px",
+        }}
+      >
+        Student
+      </h1>
+      <div
+        className="buttons"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "10px",
+          marginTop: "100px",
+        }}
+      >
+        <Link href="/student/map" style={{ textDecoration: "none" }}>
           <div className={style.button}>
-            <GroupsIcon className={style.Buttonicon}/>
-            <p className={style.buttonText}>Student</p>
+            <PinDropIcon className={style.Buttonicon} />
+            <p className={style.buttonText}>View Map</p>
           </div>
         </Link>
-        <Link href="/teacher" style={{"textDecoration":"none"}}>
-          <div className={style.button} style={{backgroundColor:"#2a9d8f"}}>
-            <AssignmentIndIcon className={style.Buttonicon}/>
-            <p className={style.buttonText}>Teacher</p>
+        <Link href="/student/service" style={{ textDecoration: "none" }}>
+          <div className={style.button}>
+            <AssignmentIcon className={style.Buttonicon} />
+            <p className={style.buttonText}>Read Service</p>
           </div>
         </Link>
       </div>
+      <Typography
+        variant="h6"
+        component="p"
+        sx={{ mt: "50px", fontWeight: 200, fontSize: "15px" }}
+      >
+        <Link href="/teacher" style={{ textDecoration: "none" }}>
+          Are you teacher?
+        </Link>
+      </Typography>
     </div>
   );
 }
