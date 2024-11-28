@@ -40,8 +40,7 @@ Contributions are welcome! Please follow these steps to contribute:
 5. Open a pull request.
 
 ## License
-This project is licensed under the MIT License.
-
+Open Source. Free for everyone.
 ## Acknowledgments
 - Special thanks to Assumption University of Thailand for their support and inspiration.
 
