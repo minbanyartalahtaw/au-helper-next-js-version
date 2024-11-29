@@ -5,6 +5,7 @@ import ServiceCard from "@/app/compoment/ServiceCard";
 import { useRouter } from "next/navigation";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { Typography } from "@mui/material";
+import Link from "next/link";
 
 interface orginalService {
   id: number;
@@ -43,12 +44,17 @@ export default function Home() {
           }}
         >
           {services.map((service) => (
-            <ServiceCard
+            <Link
+              href={`/student/service/${service.id}`}
               key={service.id}
-              title={service.title}
-              details={service.details}
-              imgLink={service.imageLink}
-            />
+              style={{ textDecoration: "none" }}
+            >
+              <ServiceCard
+                title={service.title}
+                details={service.details}
+                imgLink={service.imageLink}
+              />
+            </Link>
           ))}
         </div>
         <div

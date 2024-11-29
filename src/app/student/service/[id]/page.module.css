@@ -1,0 +1,58 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #bc4749;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: whitesmoke;
+  font-size: 30px;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.title {
+  color: whitesmoke;
+  font-family: sans-serif;
+  padding: 10px;
+}
+
+.details {
+  color: whitesmoke;
+  font-family: sans-serif;
+  padding: 10px;
+  text-wrap: wrap;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 890px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@keyframes moveButtonTop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

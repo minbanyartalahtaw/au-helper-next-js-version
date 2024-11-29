@@ -1,56 +1,55 @@
-.container{
-    background-color: rgb(203, 232, 255);
-    animation-name: moveButtonTop;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
+.container {
+  background-color: rgb(203, 232, 255);
+  animation-name: moveButtonTop;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
 }
-.title{
-    font-family: sans-serif;
-    background-color: aliceblue;
-    border-color: transparent;
-    margin-bottom: 5px;
-    width: 300px;
-    height: 50px;
-    font-size: 30px;
-    padding: 20px;
-    border-radius: 10px;
+.title {
+  font-family: sans-serif;
+  background-color: aliceblue;
+  border-color: transparent;
+  margin-bottom: 5px;
+  width: 300px;
+  height: 50px;
+  font-size: 30px;
+  padding: 20px;
+  border-radius: 10px;
 }
-.title:active
-.title:focus{
-    border-color: #1876D1;
+.title:active .title:focus {
+  border-color: #1876d1;
 }
-.textField{
-    min-height: 500px;
-    text-wrap: normal;
-    min-width: 440px;
-    width: 300px;
-    height: 200px;
-    padding: 20px;
-    font-family: sans-serif;
-    font-size: 20px;
-    background-color: aliceblue;
-    border-color: transparent;
-    border-radius: 10px;
-    margin-bottom: 5px;
+.textField {
+  min-height: 500px;
+  text-wrap: normal;
+  min-width: 440px;
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: aliceblue;
+  border-color: transparent;
+  border-radius: 10px;
+  margin-bottom: 5px;
 }
-.imageLink{
-    border-color: transparent;
-    background-color: aliceblue;
-    width: 300px;
-    height: 30px;
-    font-size: 10px;
-    padding: 20px;
-    border-radius: 10px;
+.imageLink {
+  border-color: transparent;
+  background-color: aliceblue;
+  width: 300px;
+  height: 30px;
+  font-size: 10px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 @keyframes moveButtonTop {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
