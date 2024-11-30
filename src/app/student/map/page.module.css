@@ -1,107 +1,181 @@
-.buildingContainer{
-    margin: 0 auto;
-    width: 647px;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-    transform: scale(1);
+.buildingContainer {
+  margin: 0 auto;
+  width: 647px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  transform: scale(1);
 }
 
-.mapContainer{
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 0 auto;
+.mapContainer {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
-.gate{
-    background-color: rgb(191, 191, 191);
-    width: 97px;
-    height: 97px;
-    margin: 0;
-    padding: 0;
+.gate {
+  background-color: rgb(191, 191, 191);
+  width: 97px;
+  height: 97px;
+  margin: 0;
+  padding: 0;
 }
 
-.building{
-    background-color: rgb(191, 191, 191);
-    width: 60px;
-    height: 178px;
-    margin: 0;
-    padding: 0;
+.building {
+  background-color: rgb(191, 191, 191);
+  width: 60px;
+  height: 178px;
+  margin: 0;
+  padding: 0;
 }
-.SRbuildingContainer, .SGbuildingContainer, .SMbuildingContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.SRbuildingContainer,
+.SGbuildingContainer,
+.SMbuildingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.map-left{
-    display: flex;
-    flex-direction: row;
-}
-
-.buildingContainer{
-    margin: 0 auto;
-    width: 647px;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-    transform: scale(1);
+.buildingContainer {
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  transform: scale(1);
 }
 
-.SMbuildingContainer{
-    transform: rotate(-90deg);
-    transform-origin: top;
-    position: absolute;
-    margin-left: -47.8px;
-    margin-top: 45px;
+.SMbuildingContainer {
+  transform: rotate(-90deg);
+  transform-origin: top;
+  position: absolute;
+  margin-left: -47.8px;
+  margin-top: 45px;
 }
 
-@media (max-width:1600px) {
-    .buildingContainer{
-        transform: scale(0.7);
-    }
-}
-
-@media  (max-width:800px) {
-    .buildingContainer{
-        transform: scale(0.5);
-    }
-
-}
 /**********************************************/
 
 .btn {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
-.mapRight h2{
-    font-weight: lighter;
-    font-size: 30px;
-    color: #868686;
-    text-align: center;
-    user-select: none;
-    margin: 20px 0px;
+.mapRight h2 {
+  font-weight: lighter;
+  font-size: 25px;
+  color: #868686;
+  text-align: center;
+  user-select: none;
+  margin: 20px 0px;
 }
-.map-right{
-    margin-top: -100px;
+.rightContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.title {
+  color: #d32f2f;
+  text-align: center;
+  margin-bottom: 25px;
+  font-family: sans-serif;
+}
+.chooseFloorContainer,
+.chooseRoomContainer,
+.chooseBuildingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.opicityZero {
+.chooseFloorContainer button,
+.chooseRoomContainer button,
+.chooseBuildingContainer button {
+  margin-left: 10px;
+}
+
+.chooseFloorContainer {
+  animation-name: moveTop;
+  animation-duration: 0.35s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+.chooseRoomContainer {
+  animation-name: moveBottom;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+.displayNone {
+  display: none;
+}
+@keyframes moveTop {
+  0% {
     opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-.buildingButton{
-    color:black;
-}
-.floorNumber{
-    color: black;
+@keyframes moveBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.display-none{
-    display: none;
+@media (max-width: 1600px) {
+  .buildingContainer {
+    transform: scale(0.7);
+  }
 }
 
+@media screen and (max-width: 1300px) {
+  .mapContainer {
+    justify-content: center;
+  }
+  .mapRight {
+    margin-top: -100px;
+  }
+}
+@media (max-width: 810px) {
+  .mapContainer {
+    width: 100%;
+  }
+  .buildingContainer {
+    transform: scale(0.5);
+  }
+  .mapRight {
+    margin-top: -130px;
+  }
+  .mapRight h2 {
+    font-size: 40px;
+  }
+}
 
+@media (max-width: 500px) {
+  .mapContainer {
+    width: 100%;
+  }
+  .buildingContainer {
+    transform: scale(0.5);
+  }
+  .mapRight {
+    margin-top: -150px;
+  }
+  .mapRight h2 {
+    font-size: 20px;
+  }
+}
