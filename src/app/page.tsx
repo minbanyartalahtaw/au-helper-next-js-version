@@ -13,7 +13,6 @@ export default function Home() {
         alignItems: "center",
         height: "100vh",
         flexDirection: "column",
-        borderBottom: "1px solid #eb5e28",
       }}
     >
       <h1
@@ -27,7 +26,7 @@ export default function Home() {
         Student
       </h1>
       <div
-        className="buttons"
+        className={style.buttonContainer}
         style={{
           display: "flex",
           justifyContent: "center",

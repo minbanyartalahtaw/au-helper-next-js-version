@@ -115,6 +115,21 @@
 .displayNone {
   display: none;
 }
+
+.SRbuilding1,
+.SRbuilding2 {
+  background-color: #d32f2f;
+}
+
+.SMbuilding1,
+.SMbuilding2 {
+  background-color: #2f7c31;
+}
+
+.SGbuilding1,
+.SGbuilding2 {
+  background-color: #1876d1;
+}
 @keyframes moveTop {
   0% {
     opacity: 0;
@@ -151,6 +166,9 @@
   }
 }
 @media (max-width: 810px) {
+  .mapLeft {
+    margin-top: -130px;
+  }
   .mapContainer {
     width: 100%;
   }
