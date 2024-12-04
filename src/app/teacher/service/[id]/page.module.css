@@ -1,0 +1,107 @@
+.container {
+  max-width: 700px;
+  background-color: #1876d1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: whitesmoke;
+  font-size: 30px;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.title {
+  color: whitesmoke;
+  font-family: sans-serif;
+  padding: 10px;
+}
+
+.details {
+  color: whitesmoke;
+  font-family: sans-serif;
+  padding: 10px;
+  text-wrap: wrap;
+  line-height: 28px;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 890px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@keyframes moveButtonTop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* This CSS file styles the teacher service page. It includes styles for the container, close button, image, title, and details sections. 
+  It also includes media queries for responsive design and a keyframe animation for button movement. */
+.leftTitle {
+  font-family: sans-serif;
+  background-color: aliceblue;
+  border-color: transparent;
+  margin-bottom: 5px;
+  width: 300px;
+  height: 50px;
+  font-size: 30px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.title:active .title:focus {
+  border-color: #1876d1;
+}
+.textField {
+  min-height: 500px;
+  text-wrap: normal;
+  min-width: 440px;
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: aliceblue;
+  border-color: transparent;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.imageLink {
+  border-color: transparent;
+  background-color: aliceblue;
+  width: 300px;
+  height: 30px;
+  font-size: 10px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+@keyframes moveButtonTop {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

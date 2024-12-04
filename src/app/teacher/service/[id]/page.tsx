@@ -6,6 +6,7 @@ import style from "./page.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
+import EditService from "./editService";
 
 export default async function Home({ params }: any) {
   const { id } = await params;
@@ -14,7 +15,16 @@ export default async function Home({ params }: any) {
     where: { id: Number(id) },
   });
   return (
-    <div>
+    <div
+      style={{
+        padding: "50px",
+        display: "flex",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        flexDirection: "row",
+        flexWrap: "wrap",
+      }}
+    >
       <Box alignItems={"center"} className={style.container}>
         <CardMedia
           sx={{ height: "200px" }}
@@ -34,6 +44,15 @@ export default async function Home({ params }: any) {
           <CloseIcon className={style.close} fontSize="large" />
         </Link>
       </Box>
+
+      <div>
+        <EditService
+          id={service?.id || 0}
+          title={service?.title || ""}
+          details={service?.details || ""}
+          imageLink={service?.imageLink || ""}
+        />
+      </div>
     </div>
   );
 }

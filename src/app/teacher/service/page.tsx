@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { Typography } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import Link from "next/link";
 
 interface orginalService {
   id: number;
@@ -64,13 +65,18 @@ export default function Home() {
           }}
         >
           {services.map((service) => (
-            <div key={service.id} className={style.card}>
+            <Link
+              href={`/teacher/service/${service.id}`}
+              key={service.id}
+              className={style.card}
+              style={{ textDecoration: "none" }}
+            >
               <ServiceCard
                 title={service.title}
                 details={service.details}
                 imgLink={service.imageLink}
               />
-            </div>
+            </Link>
           ))}
         </div>
         <div
