@@ -1,9 +1,7 @@
 .container {
   max-width: 700px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  position: relative;
   background-color: #bc4749;
   border-radius: 5px;
   overflow: hidden;
@@ -39,7 +37,7 @@
 
 @media screen and (max-width: 700px) {
   .container {
-    width: 90%;
+    width: 800px;
   }
 }
 @media screen and (max-width: 890px) {

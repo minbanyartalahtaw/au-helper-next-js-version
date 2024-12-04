@@ -15,6 +15,7 @@ export default async function Home({ params }: any) {
   });
   return (
     <div>
+      <div style={{ height: "100px" }}> </div>
       <Box alignItems={"center"} className={style.container}>
         <CardMedia
           sx={{ height: "200px" }}
