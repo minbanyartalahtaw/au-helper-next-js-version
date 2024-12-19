@@ -40,7 +40,7 @@ export default async function Home({ params }: any) {
         <ReactMarkdown className={style.details}>
           {service?.details}
         </ReactMarkdown>
-        <Link href={"/student/service"}>
+        <Link href={"/teacher/service"}>
           <CloseIcon className={style.close} fontSize="large" />
         </Link>
       </Box>

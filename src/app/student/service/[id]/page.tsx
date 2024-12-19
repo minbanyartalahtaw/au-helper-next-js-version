@@ -22,7 +22,7 @@ export default async function Home({ params }: any) {
           height="300px"
           component="img"
           image={service?.imageLink}
-          alt="visagreen iguana"
+          alt="Image_Not_Found"
           className={style.image}
         />
         <Typography variant="h3" className={style.title}>

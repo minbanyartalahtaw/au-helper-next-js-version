@@ -7,6 +7,7 @@ import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { Typography } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import Link from "next/link";
+import { config } from "@/app/config";
 
 interface orginalService {
   id: number;
@@ -21,7 +22,7 @@ export default function Home() {
     getServices();
   }, []);
   const getServices = async () => {
-    const res = await fetch("http://localhost:3000/api/teacher/");
+    const res = await fetch(`${config.backofficeUrl}/api/teacher/`);
     const data = await res.json();
     setServices(data);
   };

@@ -3,6 +3,7 @@ import { useState } from "react";
 import style from "./page.module.css";
 import { Button } from "@mui/material";
 import { useRouter } from "next/navigation";
+import { config } from "@/app/config";
 
 interface Prop {
   id: number;
@@ -17,7 +18,7 @@ export default function EditService({ id, title, details, imageLink }: Prop) {
   const [usedetails, setuseDetails] = useState(details);
   const [useimageLink, setuseImageLink] = useState(imageLink);
   const updateService = async () => {
-    await fetch("http://localhost:3000/api/teacher", {
+    await fetch(`${config.backofficeUrl}/api/teacher`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
