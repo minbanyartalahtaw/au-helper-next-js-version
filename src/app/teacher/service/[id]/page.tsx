@@ -1,58 +1,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { prisma } from "@/app/libs/prisma";
-import { Box, CardMedia, Typography } from "@mui/material";
+import getServices from "./action";
+import { Box } from "@mui/material";
 import React from "react";
-import style from "./page.module.css";
-import CloseIcon from "@mui/icons-material/Close";
-import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import EditService from "./editService";
+import MenuCard from "./editService";
 
 export default async function Home({ params }: any) {
   const { id } = await params;
-  if (!id) return null;
-  const service = await prisma.service.findUnique({
-    where: { id: Number(id) },
-  });
+  const service = await getServices(id);
+  if (!service) return null;
   return (
-    <div
-      style={{
-        padding: "50px",
+    <Box
+      sx={{
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: "flex-start",
         alignItems: "center",
-        flexDirection: "row",
-        flexWrap: "wrap",
-      }}
-    >
-      <Box alignItems={"center"} className={style.container}>
-        <CardMedia
-          sx={{ height: "200px" }}
-          height="300px"
-          component="img"
-          image={service?.imageLink}
-          alt="visagreen iguana"
-          className={style.image}
-        />
-        <Typography variant="h3" className={style.title}>
-          {service?.title}
-        </Typography>
-        <ReactMarkdown className={style.details}>
-          {service?.details}
-        </ReactMarkdown>
-        <Link href={"/teacher/service"}>
-          <CloseIcon className={style.close} fontSize="large" />
-        </Link>
-      </Box>
+        flexDirection: "column",
+        width: "100%",
+        height: "100vh",
+        gap: 2,
+        "@media (max-width: 600px)": {
+          flexDirection: "column",
+        },
+      }}>
+      <Box sx={{ width: "100%", height: "10px" }}></Box>
 
-      <div>
-        <EditService
-          id={service?.id || 0}
-          title={service?.title || ""}
-          details={service?.details || ""}
-          imageLink={service?.imageLink || ""}
+      <Box>
+        <MenuCard
+          title={service.title}
+          details={service.details}
+          imageLink={service.imageLink}
         />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }

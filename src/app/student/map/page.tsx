@@ -129,8 +129,7 @@ export default function Map() {
         alignItems: "center",
         height: "100vh",
         flexDirection: "column",
-      }}
-    >
+      }}>
       <div className={style.mapContainer}>
         <div className={style.mapLeft}>
           <div className={style.buildingContainer}>
@@ -139,14 +138,12 @@ export default function Map() {
               <div
                 className={`${style.building} ${
                   showSRMap1 ? style.SRbuilding1 : ""
-                }`}
-              ></div>
+                }`}></div>
               <div className={style.gate}></div>
               <div
                 className={`${style.building} ${
                   showSRMap2 ? style.SRbuilding2 : ""
-                }`}
-              ></div>
+                }`}></div>
               <div className={style.gate}></div>
             </div>
             <div className={style.SMbuildingContainer}>
@@ -154,14 +151,12 @@ export default function Map() {
               <div
                 className={`${style.building} ${
                   showSMMap1 ? style.SMbuilding1 : ""
-                }`}
-              ></div>
+                }`}></div>
               <div className={style.gate}></div>
               <div
                 className={`${style.building} ${
                   showSMMap2 ? style.SMbuilding1 : ""
-                }`}
-              ></div>
+                }`}></div>
               <div className={style.gate}></div>
             </div>
 
@@ -170,21 +165,30 @@ export default function Map() {
               <div
                 className={`${style.building} ${
                   showSGMap1 ? style.SGbuilding1 : ""
-                }`}
-              ></div>
+                }`}></div>
               <div className={style.gate}></div>
               <div
                 className={`${style.building} ${
                   showSGMap2 ? style.SGbuilding1 : ""
-                }`}
-              ></div>
+                }`}></div>
               <div className={style.gate}></div>
             </div>
           </div>
         </div>
 
         <div className={style.mapRight}>
-          <Typography variant="h3" className={style.title}>
+          <Typography
+            variant="h3"
+            className={style.title}
+            sx={{
+              fontSize: {
+                xs: 35,
+                sm: 25,
+                md: 30,
+                lg: 35,
+                xl: 40,
+              },
+            }}>
             map
           </Typography>
           <div className={style.rightContainer}>
@@ -205,8 +209,7 @@ export default function Map() {
                     setShowSMMap2(false);
                     setShowSRMap1(false);
                     setShowSRMap2(false);
-                  }}
-                >
+                  }}>
                   {srBuilding.name}
                 </Button>
                 <Button
@@ -223,8 +226,7 @@ export default function Map() {
                     setShowSMMap2(false);
                     setShowSRMap1(false);
                     setShowSRMap2(false);
-                  }}
-                >
+                  }}>
                   {smBuilding.name}
                 </Button>
                 <Button
@@ -241,8 +243,7 @@ export default function Map() {
                     setShowSMMap2(false);
                     setShowSRMap1(false);
                     setShowSRMap2(false);
-                  }}
-                >
+                  }}>
                   {sgBuilding.name}
                 </Button>
               </div>
@@ -251,8 +252,7 @@ export default function Map() {
             <div
               className={`${style.chooseFloorContainer} ${
                 SeeFloor ? "" : style.displayNone
-              }`}
-            >
+              }`}>
               <Typography variant="h2">choose the floor</Typography>
               <div>
                 {building.floors.map((floor) => {
@@ -264,8 +264,7 @@ export default function Map() {
                       onClick={() => {
                         setSeeRoom(true);
                         setFloorNumber(floor - 1);
-                      }}
-                    >
+                      }}>
                       {floor}
                     </Button>
                   );
@@ -276,8 +275,7 @@ export default function Map() {
             <div
               className={`${style.chooseRoomContainer} ${
                 SeeRoom ? "" : style.displayNone
-              }`}
-            >
+              }`}>
               <Typography variant="h2">choose the room</Typography>
               <div>
                 {building.rooms[floorNumber].map((room) => {
@@ -286,13 +284,11 @@ export default function Map() {
                       key={room}
                       variant="contained"
                       color={building.buttonColor as any}
-                      onClick={() => showColor(room)}
-                    >
+                      onClick={() => showColor(room)}>
                       {room}
                     </Button>
                   );
                 })}
-                ;
               </div>
             </div>
           </div>
@@ -309,8 +305,7 @@ export default function Map() {
           color: "#E63946",
           cursor: "pointer",
         }}
-        onClick={() => router.push("/")}
-      >
+        onClick={() => router.push("/")}>
         <KeyboardBackspaceIcon />
         <p>Back</p>
       </div>

@@ -3,17 +3,29 @@ import { Button, ButtonGroup, TextField } from "@mui/material";
 import { useRouter } from "next/navigation";
 import style from "./page.module.css";
 import { useState } from "react";
+import checkUser from "./action";
 
 export default function Home() {
   const router = useRouter();
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
 
-  const handleLogin = () => {
-    if (username === "teacher" && password === "6715168") {
+  const handleLogin = async () => {
+    const response: boolean = await checkUser({ username, password });
+    if (response) {
+      const authToken = Array.from(crypto.getRandomValues(new Uint8Array(32)))
+        .map((b) =>
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".charAt(
+            b % 62
+          )
+        )
+        .join("");
+      document.cookie = `authToken=${authToken}; Max-Age=1800; Path=/`;
       router.push("/teacher/service");
     } else {
-      alert("Invalid username or password");
+      setPassword("");
+      setUsername("");
+      alert("Please check username and password");
     }
   };
   return (
@@ -26,16 +38,14 @@ export default function Home() {
         height: "100vh",
         flexDirection: "column",
         borderBottom: "1px solid #eb5e28",
-      }}
-    >
+      }}>
       <h1
         style={{
           color: "#1876D1",
           fontFamily: "sans-serif",
           fontWeight: 100,
           marginTop: "-130px",
-        }}
-      >
+        }}>
         Teacher
       </h1>
       <TextField
@@ -57,13 +67,11 @@ export default function Home() {
       <ButtonGroup
         variant="text"
         aria-label="Basic button group"
-        sx={{ mt: "50px" }}
-      >
+        sx={{ mt: "50px" }}>
         <Button
           onClick={() => {
             router.back();
-          }}
-        >
+          }}>
           BacK
         </Button>
         <Button> </Button>

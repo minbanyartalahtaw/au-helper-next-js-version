@@ -7,25 +7,20 @@ import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { Typography } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import Link from "next/link";
-import { config } from "@/app/config";
+import { ServiceType } from "@/app/form/form";
+import getServices from "./action";
 
-interface orginalService {
-  id: number;
-  title: string;
-  details: string;
-  imageLink: string;
-}
 export default function Home() {
   const router = useRouter();
-  const [services, setServices] = useState<orginalService[]>([]);
+  const [services, setServices] = useState<ServiceType[]>([]);
   useEffect(() => {
-    getServices();
+    async function fetchData() {
+      const serviceData = await getServices();
+      setServices(serviceData);
+    }
+    fetchData();
   }, []);
-  const getServices = async () => {
-    const res = await fetch(`${config.backofficeUrl}/api/teacher/`);
-    const data = await res.json();
-    setServices(data);
-  };
+  if (services.length === 0) return null;
   return (
     <div className={style.container}>
       <div style={{ height: "10%" }}></div>
@@ -38,8 +33,7 @@ export default function Home() {
 
         <div
           className={style.button}
-          onClick={() => router.push("/teacher/service/new")}
-        >
+          onClick={() => router.push("/teacher/service/new")}>
           <AddCircleOutlineIcon />
           <button
             style={{
@@ -49,8 +43,7 @@ export default function Home() {
               fontSize: "20px",
               marginLeft: "10px",
               cursor: "pointer",
-            }}
-          >
+            }}>
             Add New Service
           </button>
         </div>
@@ -63,15 +56,13 @@ export default function Home() {
             justifyContent: "center",
             alignItems: "center",
             gap: "10px",
-          }}
-        >
+          }}>
           {services.map((service) => (
             <Link
               href={`/teacher/service/${service.id}`}
               key={service.id}
               className={style.card}
-              style={{ textDecoration: "none" }}
-            >
+              style={{ textDecoration: "none" }}>
               <ServiceCard
                 title={service.title}
                 details={service.details}
@@ -91,8 +82,7 @@ export default function Home() {
             color: "#1876D1",
             cursor: "pointer",
           }}
-          onClick={() => router.push("/")}
-        >
+          onClick={() => router.push("/")}>
           <KeyboardBackspaceIcon />
           <p>Back</p>
         </div>

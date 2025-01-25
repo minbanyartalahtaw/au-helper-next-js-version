@@ -11,6 +11,7 @@ interface Props {
   details: string;
   imgLink: string;
 }
+
 export default function ServiceCard({ title, details, imgLink }: Props) {
   return (
     <Card sx={{ maxWidth: 345 }}>

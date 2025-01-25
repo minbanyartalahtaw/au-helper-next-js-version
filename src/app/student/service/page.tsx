@@ -6,25 +6,20 @@ import { useRouter } from "next/navigation";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { Typography } from "@mui/material";
 import Link from "next/link";
-import { config } from "@/app/config";
+import getServices from "./action";
+import { ServiceType } from "@/app/form/form";
 
-interface orginalService {
-  id: number;
-  title: string;
-  details: string;
-  imageLink: string;
-}
 export default function Home() {
   const router = useRouter();
-  const [services, setServices] = useState<orginalService[]>([]);
+  const [services, setServices] = useState<ServiceType[]>([]);
   useEffect(() => {
-    getServices();
+    async function fetchData() {
+      const serviceData = await getServices();
+      setServices(serviceData);
+    }
+    fetchData();
   }, []);
-  const getServices = async () => {
-    const res = await fetch(`${config.backofficeUrl}/api/teacher/`);
-    const data = await res.json();
-    setServices(data);
-  };
+  if (services.length === 0) return null;
   return (
     <div className={style.container}>
       <div style={{ height: "10%" }}></div>
@@ -42,14 +37,12 @@ export default function Home() {
             justifyContent: "center",
             alignItems: "center",
             gap: "10px",
-          }}
-        >
+          }}>
           {services.map((service) => (
             <Link
               href={`/student/service/${service.id}`}
               key={service.id}
-              style={{ textDecoration: "none" }}
-            >
+              style={{ textDecoration: "none" }}>
               <ServiceCard
                 title={service.title}
                 details={service.details}
@@ -69,8 +62,7 @@ export default function Home() {
             color: "#E63946",
             cursor: "pointer",
           }}
-          onClick={() => router.push("/")}
-        >
+          onClick={() => router.push("/")}>
           <KeyboardBackspaceIcon />
           <p>Back</p>
         </div>
