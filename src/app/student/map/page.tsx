@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import style from "./page.module.css";
 import { Button, Typography } from "@mui/material";
 import { useState } from "react";
+import { motion } from "framer-motion";
 export default function Map() {
   const router = useRouter();
   const [SeeFloor, setSeeFloor] = useState(false);
@@ -122,193 +123,199 @@ export default function Map() {
     }
   };
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        flexDirection: "column",
-      }}>
-      <div className={style.mapContainer}>
-        <div className={style.mapLeft}>
-          <div className={style.buildingContainer}>
-            <div className={style.SRbuildingContainer}>
-              <div className={style.gate}></div>
-              <div
-                className={`${style.building} ${
-                  showSRMap1 ? style.SRbuilding1 : ""
-                }`}></div>
-              <div className={style.gate}></div>
-              <div
-                className={`${style.building} ${
-                  showSRMap2 ? style.SRbuilding2 : ""
-                }`}></div>
-              <div className={style.gate}></div>
-            </div>
-            <div className={style.SMbuildingContainer}>
-              <div className={style.gate}></div>
-              <div
-                className={`${style.building} ${
-                  showSMMap1 ? style.SMbuilding1 : ""
-                }`}></div>
-              <div className={style.gate}></div>
-              <div
-                className={`${style.building} ${
-                  showSMMap2 ? style.SMbuilding1 : ""
-                }`}></div>
-              <div className={style.gate}></div>
-            </div>
-
-            <div className={style.SGbuildingContainer}>
-              <div className={style.gate}></div>
-              <div
-                className={`${style.building} ${
-                  showSGMap1 ? style.SGbuilding1 : ""
-                }`}></div>
-              <div className={style.gate}></div>
-              <div
-                className={`${style.building} ${
-                  showSGMap2 ? style.SGbuilding1 : ""
-                }`}></div>
-              <div className={style.gate}></div>
-            </div>
-          </div>
-        </div>
-
-        <div className={style.mapRight}>
-          <Typography
-            variant="h3"
-            className={style.title}
-            sx={{
-              fontSize: {
-                xs: 35,
-                sm: 25,
-                md: 30,
-                lg: 35,
-                xl: 40,
-              },
-            }}>
-            map
-          </Typography>
-          <div className={style.rightContainer}>
-            <div className={style.chooseBuildingContainer}>
-              <Typography variant="h2">choose the building</Typography>
-              <div>
-                <Button
-                  variant="outlined"
-                  color="error"
-                  onClick={() => {
-                    setSeeFloor(false);
-                    setSeeRoom(false);
-                    setBuilding(srBuilding);
-                    setSeeFloor(true);
-                    setShowSGMap1(false);
-                    setShowSGMap2(false);
-                    setShowSMMap1(false);
-                    setShowSMMap2(false);
-                    setShowSRMap1(false);
-                    setShowSRMap2(false);
-                  }}>
-                  {srBuilding.name}
-                </Button>
-                <Button
-                  variant="outlined"
-                  color="success"
-                  onClick={() => {
-                    setSeeFloor(false);
-                    setSeeRoom(false);
-                    setBuilding(smBuilding);
-                    setSeeFloor(true);
-                    setShowSGMap1(false);
-                    setShowSGMap2(false);
-                    setShowSMMap1(false);
-                    setShowSMMap2(false);
-                    setShowSRMap1(false);
-                    setShowSRMap2(false);
-                  }}>
-                  {smBuilding.name}
-                </Button>
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  onClick={() => {
-                    setSeeFloor(false);
-                    setSeeRoom(false);
-                    setBuilding(sgBuilding);
-                    setSeeFloor(true);
-                    setShowSGMap1(false);
-                    setShowSGMap2(false);
-                    setShowSMMap1(false);
-                    setShowSMMap2(false);
-                    setShowSRMap1(false);
-                    setShowSRMap2(false);
-                  }}>
-                  {sgBuilding.name}
-                </Button>
-              </div>
-            </div>
-
-            <div
-              className={`${style.chooseFloorContainer} ${
-                SeeFloor ? "" : style.displayNone
-              }`}>
-              <Typography variant="h2">choose the floor</Typography>
-              <div>
-                {building.floors.map((floor) => {
-                  return (
-                    <Button
-                      variant="contained"
-                      key={floor}
-                      color={building.buttonColor as any}
-                      onClick={() => {
-                        setSeeRoom(true);
-                        setFloorNumber(floor - 1);
-                      }}>
-                      {floor}
-                    </Button>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div
-              className={`${style.chooseRoomContainer} ${
-                SeeRoom ? "" : style.displayNone
-              }`}>
-              <Typography variant="h2">choose the room</Typography>
-              <div>
-                {building.rooms[floorNumber].map((room) => {
-                  return (
-                    <Button
-                      key={room}
-                      variant="contained"
-                      color={building.buttonColor as any}
-                      onClick={() => showColor(room)}>
-                      {room}
-                    </Button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.5 }}>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          gap: "10px",
-          marginTop: "60px",
-          color: "#E63946",
-          cursor: "pointer",
-        }}
-        onClick={() => router.push("/")}>
-        <KeyboardBackspaceIcon />
-        <p>Back</p>
+          height: "100vh",
+          flexDirection: "column",
+        }}>
+        <div className={style.mapContainer}>
+          <div className={style.mapLeft}>
+            <div className={style.buildingContainer}>
+              <div className={style.SRbuildingContainer}>
+                <div className={style.gate}></div>
+                <div
+                  className={`${style.building} ${
+                    showSRMap1 ? style.SRbuilding1 : ""
+                  }`}></div>
+                <div className={style.gate}></div>
+                <div
+                  className={`${style.building} ${
+                    showSRMap2 ? style.SRbuilding2 : ""
+                  }`}></div>
+                <div className={style.gate}></div>
+              </div>
+              <div className={style.SMbuildingContainer}>
+                <div className={style.gate}></div>
+                <div
+                  className={`${style.building} ${
+                    showSMMap1 ? style.SMbuilding1 : ""
+                  }`}></div>
+                <div className={style.gate}></div>
+                <div
+                  className={`${style.building} ${
+                    showSMMap2 ? style.SMbuilding1 : ""
+                  }`}></div>
+                <div className={style.gate}></div>
+              </div>
+
+              <div className={style.SGbuildingContainer}>
+                <div className={style.gate}></div>
+                <div
+                  className={`${style.building} ${
+                    showSGMap1 ? style.SGbuilding1 : ""
+                  }`}></div>
+                <div className={style.gate}></div>
+                <div
+                  className={`${style.building} ${
+                    showSGMap2 ? style.SGbuilding1 : ""
+                  }`}></div>
+                <div className={style.gate}></div>
+              </div>
+            </div>
+          </div>
+
+          <div className={style.mapRight}>
+            <Typography
+              variant="h3"
+              className={style.title}
+              sx={{
+                fontSize: {
+                  xs: 35,
+                  sm: 25,
+                  md: 30,
+                  lg: 35,
+                  xl: 40,
+                },
+              }}>
+              map
+            </Typography>
+            <div className={style.rightContainer}>
+              <div className={style.chooseBuildingContainer}>
+                <Typography variant="h2">choose the building</Typography>
+                <div>
+                  <Button
+                    variant="outlined"
+                    color="error"
+                    onClick={() => {
+                      setSeeFloor(false);
+                      setSeeRoom(false);
+                      setBuilding(srBuilding);
+                      setSeeFloor(true);
+                      setShowSGMap1(false);
+                      setShowSGMap2(false);
+                      setShowSMMap1(false);
+                      setShowSMMap2(false);
+                      setShowSRMap1(false);
+                      setShowSRMap2(false);
+                    }}>
+                    {srBuilding.name}
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    color="success"
+                    onClick={() => {
+                      setSeeFloor(false);
+                      setSeeRoom(false);
+                      setBuilding(smBuilding);
+                      setSeeFloor(true);
+                      setShowSGMap1(false);
+                      setShowSGMap2(false);
+                      setShowSMMap1(false);
+                      setShowSMMap2(false);
+                      setShowSRMap1(false);
+                      setShowSRMap2(false);
+                    }}>
+                    {smBuilding.name}
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={() => {
+                      setSeeFloor(false);
+                      setSeeRoom(false);
+                      setBuilding(sgBuilding);
+                      setSeeFloor(true);
+                      setShowSGMap1(false);
+                      setShowSGMap2(false);
+                      setShowSMMap1(false);
+                      setShowSMMap2(false);
+                      setShowSRMap1(false);
+                      setShowSRMap2(false);
+                    }}>
+                    {sgBuilding.name}
+                  </Button>
+                </div>
+              </div>
+
+              <div
+                className={`${style.chooseFloorContainer} ${
+                  SeeFloor ? "" : style.displayNone
+                }`}>
+                <Typography variant="h2">choose the floor</Typography>
+                <div>
+                  {building.floors.map((floor) => {
+                    return (
+                      <Button
+                        variant="contained"
+                        key={floor}
+                        color={building.buttonColor as any}
+                        onClick={() => {
+                          setSeeRoom(true);
+                          setFloorNumber(floor - 1);
+                        }}>
+                        {floor}
+                      </Button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div
+                className={`${style.chooseRoomContainer} ${
+                  SeeRoom ? "" : style.displayNone
+                }`}>
+                <Typography variant="h2">choose the room</Typography>
+                <div>
+                  {building.rooms[floorNumber].map((room) => {
+                    return (
+                      <Button
+                        key={room}
+                        variant="contained"
+                        color={building.buttonColor as any}
+                        onClick={() => showColor(room)}>
+                        {room}
+                      </Button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "10px",
+            marginTop: "60px",
+            color: "#E63946",
+            cursor: "pointer",
+          }}
+          onClick={() => router.push("/")}>
+          <KeyboardBackspaceIcon />
+          <p>Back</p>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

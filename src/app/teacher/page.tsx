@@ -54,6 +54,11 @@ export default function Home() {
         variant="standard"
         sx={{ margin: "20px", width: "300px" }}
         onChange={(e) => setUsername(e.target.value)}
+        onKeyPress={(e) => {
+          if (e.key === "Enter") {
+            handleLogin();
+          }
+        }}
       />
       <TextField
         type="password"
@@ -62,6 +67,11 @@ export default function Home() {
         variant="standard"
         sx={{ margin: "20px", width: "300px" }}
         onChange={(e) => setPassword(e.target.value)}
+        onKeyPress={(e) => {
+          if (e.key === "Enter") {
+            handleLogin();
+          }
+        }}
       />
 
       <ButtonGroup
