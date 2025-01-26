@@ -22,10 +22,22 @@ export default function Home() {
   if (services.length === 0) return null;
   return (
     <div className={style.container}>
-      <div style={{ height: "10%" }}></div>
       <div className={style.mainContainer}>
-        <div className={style.header}>
-          <Typography variant="h3" color="#E63946">
+        <div
+          className={style.header}
+          style={{
+            padding: "20px",
+            borderBottom: "2px solid #E63946",
+            marginBottom: "10px",
+          }}>
+          <Typography
+            variant="h5"
+            color="#E63946"
+            sx={{
+              fontWeight: "bold",
+              letterSpacing: "1px",
+              textTransform: "uppercase",
+            }}>
             Service
           </Typography>
         </div>

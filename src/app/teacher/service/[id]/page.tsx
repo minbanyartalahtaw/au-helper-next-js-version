@@ -7,6 +7,7 @@ import MenuCard from "./editService";
 export default async function Home({ params }: any) {
   const { id } = await params;
   const service = await getServices(id);
+
   if (!service) return null;
   return (
     <Box
@@ -26,6 +27,7 @@ export default async function Home({ params }: any) {
 
       <Box>
         <MenuCard
+          id={service.id}
           title={service.title}
           details={service.details}
           imageLink={service.imageLink}
