@@ -142,19 +142,26 @@ export default function Map() {
           {/* Map Left */}
           <div className={style.mapLeft}>
             <div className={style.buildingContainer}>
-              <div className={style.SRbuildingContainer}>
-                <div className={style.gate}></div>
-                <div
-                  className={`${style.building} ${
-                    showSRMap1 ? style.SRbuilding1 : ""
-                  }`}></div>
-                <div className={style.gate}></div>
-                <div
-                  className={`${style.building} ${
-                    showSRMap2 ? style.SRbuilding2 : ""
-                  }`}></div>
-                <div className={style.gate}></div>
-              </div>
+              <motion.div
+                className={style.SRbuildingContainer}
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}>
+                <div className={style.SRbuildingContainer}>
+                  <div className={style.gate}></div>
+                  <div
+                    className={`${style.building} ${
+                      showSRMap1 ? style.SRbuilding1 : ""
+                    }`}></div>
+                  <div className={style.gate}></div>
+                  <div
+                    className={`${style.building} ${
+                      showSRMap2 ? style.SRbuilding2 : ""
+                    }`}></div>
+                  <div className={style.gate}></div>
+                </div>
+              </motion.div>
+
               <div className={style.SMbuildingContainer}>
                 <div className={style.gate}></div>
                 <div
@@ -169,19 +176,25 @@ export default function Map() {
                 <div className={style.gate}></div>
               </div>
 
-              <div className={style.SGbuildingContainer}>
-                <div className={style.gate}></div>
-                <div
-                  className={`${style.building} ${
-                    showSGMap1 ? style.SGbuilding1 : ""
-                  }`}></div>
-                <div className={style.gate}></div>
-                <div
-                  className={`${style.building} ${
-                    showSGMap2 ? style.SGbuilding1 : ""
-                  }`}></div>
-                <div className={style.gate}></div>
-              </div>
+              <motion.div
+                className={style.SGbuildingContainer}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}>
+                <div className={style.SGbuildingContainer}>
+                  <div className={style.gate}></div>
+                  <div
+                    className={`${style.building} ${
+                      showSGMap1 ? style.SGbuilding1 : ""
+                    }`}></div>
+                  <div className={style.gate}></div>
+                  <div
+                    className={`${style.building} ${
+                      showSGMap2 ? style.SGbuilding1 : ""
+                    }`}></div>
+                  <div className={style.gate}></div>
+                </div>
+              </motion.div>
             </div>
           </div>
 

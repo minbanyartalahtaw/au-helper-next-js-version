@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import style from "./page.module.css";
 import ServiceCard from "@/app/compoment/ServiceCard";
 import { useRouter } from "next/navigation";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import { Typography } from "@mui/material";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { Button, Typography } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import Link from "next/link";
 import { ServiceType } from "@/app/form/form";
@@ -71,21 +71,31 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        <div
-          style={{
-            marginTop: "20px",
-            marginBottom: "20px",
+        <Button
+          sx={{
+            position: "fixed",
+            top: "20px",
+            left: "20px",
+            minWidth: "40px",
+            height: "40px",
+            padding: "8px",
+            backgroundColor: "white",
+            color: "#E63946",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              backgroundColor: "#E63946",
+              color: "white",
+              transform: "scale(1.05)",
+            },
+            boxShadow: "0 3px 6px rgba(0,0,0,0.16)",
+            borderRadius: "50%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: "10px",
-            color: "#1876D1",
-            cursor: "pointer",
           }}
           onClick={() => router.push("/")}>
-          <KeyboardBackspaceIcon />
-          <p>Back</p>
-        </div>
+          <ArrowBackIosIcon sx={{ fontSize: "1.2rem", marginLeft: "4px" }} />
+        </Button>
       </div>
     </div>
   );

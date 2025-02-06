@@ -25,6 +25,7 @@ const Loading = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        height: "100vh",
       }}>
       <Box
         sx={{
@@ -44,10 +45,9 @@ const Loading = () => {
         <Typography
           variant="h5"
           sx={{
-            color: "#fff",
+            color: "black",
             fontWeight: "light",
             letterSpacing: 2,
-            fontFamily: "Carter One, cursive",
           }}>
           Loading...
         </Typography>
