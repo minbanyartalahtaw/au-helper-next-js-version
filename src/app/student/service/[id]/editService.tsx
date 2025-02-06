@@ -16,7 +16,7 @@ export default function MenuCard({ title, details, imageLink }: MenuCardProps) {
   const router = useRouter();
 
   return (
-    <Box mb={5} sx={{ padding: 1 }}>
+    <Box mb={5} sx={{ padding: 2 }}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
