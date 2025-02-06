@@ -23,15 +23,15 @@ export default function MainPage() {
           color: "#333",
           fontFamily: "Arial, sans-serif",
           fontWeight: 300,
-          marginTop: "-100px",
           background: "linear-gradient(45deg, #333, #666)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
-          fontSize: "2rem",
-          letterSpacing: "2px",
+          fontSize: "1rem",
+          letterSpacing: "3px",
           textTransform: "uppercase",
+          userSelect: "none",
         }}>
-        Student
+        Welcome Visitor
       </motion.h5>
       <div
         className={style.buttonContainer}

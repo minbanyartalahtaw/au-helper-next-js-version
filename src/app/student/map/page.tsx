@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+
 import { useRouter } from "next/navigation";
 import style from "./page.module.css";
-import { Button, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 export default function Map() {
   const router = useRouter();
   const [SeeFloor, setSeeFloor] = useState(false);
@@ -136,7 +137,9 @@ export default function Map() {
           height: "100vh",
           flexDirection: "column",
         }}>
+        {/* Map  */}
         <div className={style.mapContainer}>
+          {/* Map Left */}
           <div className={style.mapLeft}>
             <div className={style.buildingContainer}>
               <div className={style.SRbuildingContainer}>
@@ -182,6 +185,7 @@ export default function Map() {
             </div>
           </div>
 
+          {/* Map Right*/}
           <div className={style.mapRight}>
             <Typography
               variant="h3"
@@ -260,22 +264,29 @@ export default function Map() {
                   SeeFloor ? "" : style.displayNone
                 }`}>
                 <Typography variant="h2">choose the floor</Typography>
-                <div>
+                <Box>
                   {building.floors.map((floor) => {
                     return (
                       <Button
+                        sx={{ width: "0px" }}
                         variant="contained"
                         key={floor}
                         color={building.buttonColor as any}
                         onClick={() => {
                           setSeeRoom(true);
                           setFloorNumber(floor - 1);
+                          setShowSGMap1(false);
+                          setShowSGMap2(false);
+                          setShowSMMap1(false);
+                          setShowSMMap2(false);
+                          setShowSRMap1(false);
+                          setShowSRMap2(false);
                         }}>
                         {floor}
                       </Button>
                     );
                   })}
-                </div>
+                </Box>
               </div>
 
               <div
@@ -301,20 +312,33 @@ export default function Map() {
           </div>
         </div>
 
-        <div
-          style={{
+        {/** Back Button */}
+
+        <Button
+          sx={{
+            position: "fixed",
+            top: "20px",
+            left: "20px",
+            minWidth: "40px",
+            height: "40px",
+            padding: "8px",
+            backgroundColor: "white",
+            color: "#E63946",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              backgroundColor: "#E63946",
+              color: "white",
+              transform: "scale(1.05)",
+            },
+            boxShadow: "0 3px 6px rgba(0,0,0,0.16)",
+            borderRadius: "50%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: "10px",
-            marginTop: "60px",
-            color: "#E63946",
-            cursor: "pointer",
           }}
-          onClick={() => router.push("/")}>
-          <KeyboardBackspaceIcon />
-          <p>Back</p>
-        </div>
+          onClick={() => router.back()}>
+          <ArrowBackIosIcon sx={{ fontSize: "1.2rem", marginLeft: "4px" }} />
+        </Button>
       </div>
     </motion.div>
   );

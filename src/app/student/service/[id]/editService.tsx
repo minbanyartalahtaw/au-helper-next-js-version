@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 interface MenuCardProps {
   title: string;
@@ -16,30 +16,37 @@ export default function MenuCard({ title, details, imageLink }: MenuCardProps) {
   const router = useRouter();
 
   return (
-    <Box mb={5}>
+    <Box mb={5} sx={{ padding: 1 }}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}>
         <Button
-          variant="text"
-          startIcon={<ArrowLeft size={16} />}
           sx={{
-            mb: 2,
-            color: "#666",
-            fontSize: "0.9rem",
-            minWidth: "auto",
-            p: "6px 12px",
-            borderRadius: "8px",
-            transition: "all 0.2s ease-in-out",
-            backgroundColor: "#f5f5f5",
+            position: "fixed",
+            top: "10px",
+            left: "10px",
+            minWidth: "40px",
+            height: "40px",
+            padding: "8px",
+            backgroundColor: "white",
+            color: "#E63946",
+            transition: "all 0.3s ease",
             "&:hover": {
-              transform: "translateX(-2px)",
+              backgroundColor: "#E63946",
+              color: "white",
+              transform: "scale(1.05)",
             },
+            boxShadow: "0 3px 6px rgba(0,0,0,0.16)",
+            borderRadius: "50%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 2,
           }}
           onClick={() => router.back()}>
-          Back
+          <ArrowBackIosIcon sx={{ fontSize: "1.2rem", marginLeft: "4px" }} />
         </Button>
 
         <Card
@@ -50,11 +57,11 @@ export default function MenuCard({ title, details, imageLink }: MenuCardProps) {
               md: 800, // 800px on desktop
               lg: 800, // 1000px on larger screens
             },
+            zIndex: 1,
             maxWidth: "100%",
             mx: "auto", // Center the card
             overflow: "hidden",
             position: "relative",
-            padding: 0,
             borderRadius: { xs: "12px", sm: "16px" },
             boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
             transition:
