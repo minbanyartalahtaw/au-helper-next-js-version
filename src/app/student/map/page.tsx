@@ -129,10 +129,17 @@ export default function Map() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}>
-      <div
-        style={{
+      <Box
+        sx={{
+          marginTop: {
+            xs: "50px",
+            sm: "70px",
+            md: "80px",
+            lg: "90px",
+            xl: "200px",
+          },
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "center",
           height: "100vh",
           flexDirection: "column",
@@ -162,19 +169,25 @@ export default function Map() {
                 </div>
               </motion.div>
 
-              <div className={style.SMbuildingContainer}>
-                <div className={style.gate}></div>
-                <div
-                  className={`${style.building} ${
-                    showSMMap1 ? style.SMbuilding1 : ""
-                  }`}></div>
-                <div className={style.gate}></div>
-                <div
-                  className={`${style.building} ${
-                    showSMMap2 ? style.SMbuilding1 : ""
-                  }`}></div>
-                <div className={style.gate}></div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 150 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                style={{ marginLeft: "-650px" }}>
+                <div className={style.SMbuildingContainer}>
+                  <div className={style.gate}></div>
+                  <div
+                    className={`${style.building} ${
+                      showSMMap1 ? style.SMbuilding1 : ""
+                    }`}></div>
+                  <div className={style.gate}></div>
+                  <div
+                    className={`${style.building} ${
+                      showSMMap2 ? style.SMbuilding1 : ""
+                    }`}></div>
+                  <div className={style.gate}></div>
+                </div>
+              </motion.div>
 
               <motion.div
                 className={style.SGbuildingContainer}
@@ -281,7 +294,18 @@ export default function Map() {
                   {building.floors.map((floor) => {
                     return (
                       <Button
-                        sx={{ width: "0px" }}
+                        sx={{
+                          width: "50px",
+                          margin: "0 5px",
+                          transition: "all 0.25s ease",
+                          "&:hover": {
+                            transform: "scale(1.1)",
+                            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+                          },
+                          "&:active": {
+                            transform: "scale(0.95)",
+                          },
+                        }}
                         variant="contained"
                         key={floor}
                         color={building.buttonColor as any}
@@ -311,6 +335,17 @@ export default function Map() {
                   {building.rooms[floorNumber].map((room) => {
                     return (
                       <Button
+                        sx={{
+                          margin: "0 5px",
+                          transition: "all 0.25s ease",
+                          "&:hover": {
+                            transform: "scale(1.1)",
+                            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+                          },
+                          "&:active": {
+                            transform: "scale(0.95)",
+                          },
+                        }}
                         key={room}
                         variant="contained"
                         color={building.buttonColor as any}
@@ -352,7 +387,7 @@ export default function Map() {
           onClick={() => router.back()}>
           <ArrowBackIosIcon sx={{ fontSize: "1.2rem", marginLeft: "4px" }} />
         </Button>
-      </div>
+      </Box>
     </motion.div>
   );
 }
